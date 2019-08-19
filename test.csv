@@ -1,8 +1,34 @@
-country,population,county
-China,2000,Cardiff
-India,1800,Cardiff
-United States,1100,Caerphilly
-Indonesia,1000,Cardiff
-Brazil,850,Powys
-Pakistan,800,Cardiff
-Nigeria,490,Powys
+name,employees,county
+company1,2000,Cardiff
+company2,1800,Cardiff
+company3,1100,Caerphilly
+company4,1000,Cardiff
+company5,850,Powys
+company6,800,Cardiff
+company7,490,Powys
+company8,456,Carmarthenshire
+company9,277,Flintshire
+company10,755,Denbighshire
+company11,247,Torfaen
+company12,844,Gwynedd
+company13,333,Isle of Angelsey
+company14,164,Conwy
+company15,442,Wrexham
+company16,728,Ceredigion
+company17,764,Pembrokeshire
+company18,282,Swansea
+company19,332,Neath Port Talbot
+company20,227,Vale of Glamorgan
+company21,724,Bridgend
+company22,963,Rhondda Cynon Taf
+company23,246,Blaenau Gwent
+company24,161,Monmouthshire
+company25,1551,Newport
+company26,136,Powys
+company27,83,Merthyr Tydfil
+company28,522,Wrexham
+company29,315,Swansea
+company30,361,Swansea
+company31,583,Cardiff
+company32,383,Caerphilly
+company33,244,Wrexham
