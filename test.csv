@@ -1,8 +1,8 @@
-country,population
-China,2000
-India,1800
-United States,1100
-Indonesia,1000
-Brazil,850
-Pakistan,800
-Nigeria,490
+country,population,county
+China,2000,cardiff
+India,1800,cardiff
+United States,1100,caerphilly
+Indonesia,1000,cardiff
+Brazil,850,powys
+Pakistan,800,cardiff
+Nigeria,490,powys
