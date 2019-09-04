@@ -25,94 +25,116 @@ var projection = d3.geoMercator()
     .scale(15000)                       // This is like the zoom
     .translate([ width, height/2 ])
 
-var countyObject = [
+var locationCount = [
 	{
 		"County": "Isle of Anglesey",
-		"Count": 0
+		"Businesses": 0,
+		"Schools": 0
 	},
 	{
 		"County": "Gwynedd",
-		"Count": 0
+		"Businesses": 0,
+		"Schools": 0
 	},
 	{
 		"County": "Conwy",
-		"Count": 0
+		"Businesses": 0,
+		"Schools": 0
 	},
 	{
 		"County": "Denbighshire",
-		"Count": 0
+		"Businesses": 0,
+		"Schools": 0
 	},
 	{
 		"County": "Flintshire",
-		"Count": 0
+		"Businesses": 0,
+		"Schools": 0
 	},
 	{
 		"County": "Wrexham",
-		"Count": 0
+		"Businesses": 0,
+		"Schools": 0
 	},
 	{
 		"County": "Ceredigion",
-		"Count": 0
+		"Businesses": 0,
+		"Schools": 0
 	},
 	{
 		"County": "Pembrokeshire",
-		"Count": 0
+		"Businesses": 0,
+		"Schools": 0
 	},
 	{
 		"County": "Carmarthenshire",
-		"Count": 0
+		"Businesses": 0,
+		"Schools": 0
 	},
 	{
 		"County": "Swansea",
-		"Count": 0
+		"Businesses": 0,
+		"Schools": 0
 	},
 	{
 		"County": "Neath Port Talbot",
-		"Count": 0
+		"Businesses": 0,
+		"Schools": 0
 	},
 	{
 		"County": "Bridgend",
-		"Count": 0
+		"Businesses": 0,
+		"Schools": 0
 	},
 	{
 		"County": "Vale of Glamorgan",
-		"Count": 0
+		"Businesses": 0,
+		"Schools": 0
 	},
 	{
 		"County": "Cardiff",
-		"Count": 0
+		"Businesses": 0,
+		"Schools": 0
 	},
 	{
 		"County": "Rhondda Cynon Taf",
-		"Count": 0
+		"Businesses": 0,
+		"Schools": 0
 	},
 	{
 		"County": "Caerphilly",
-		"Count": 0
+		"Businesses": 0,
+		"Schools": 0
 	},
 	{
 		"County": "Blaenau Gwent",
-		"Count": 0
+		"Businesses": 0,
+		"Schools": 0
 	},
 	{
 		"County": "Torfaen",
-		"Count": 0
+		"Businesses": 0,
+		"Schools": 0
 	},
 	{
 		"County": "Monmouthshire",
-		"Count": 0
+		"Businesses": 0,
+		"Schools": 0
 	},
 	{
 		"County": "Newport",
-		"Count": 0
+		"Businesses": 0,
+		"Schools": 0
 	},
 	{
 		"County": "Powys",
-		"Count": 0
+		"Businesses": 0,
+		"Schools": 0
 	},
 	{
 		"County": "Merthyr Tydfil",
-		"Count": 0
+		"Businesses": 0,
+		"Schools": 0
 	}
 ];
 
@@ -146,7 +168,7 @@ d3.json("https://martinjc.github.io/UK-GeoJSON/json/wal/topo_lad.json")
 
 	    var features = topojson.feature(data, data.objects.lad).features;
 
-	    d3.csv('https://raw.githubusercontent.com/pinchsc/Wales-Map-Data/master/test.csv')
+	    d3.csv('https://raw.githubusercontent.com/pinchsc/Wales-Map-Data/master/business.csv')
 			.then(data => {		
 				
 				for (var i = 0; i < data.length; i++) {
@@ -154,77 +176,154 @@ d3.json("https://martinjc.github.io/UK-GeoJSON/json/wal/topo_lad.json")
 					var county = data[i].county;
 
 					if (county == "Isle of Anglesey") {
-						countyObject[0].Count++;
+						locationCount[0].Businesses++;
 					}
 					else if (county == "Gwynedd") {
-						countyObject[1].Count++;
+						locationCount[1].Businesses++;
 					}
 					else if (county == "Conwy") {
-						countyObject[2].Count++;
+						locationCount[2].Businesses++;
 					}
 					else if (county == "Denbighshire") {
-						countyObject[3].Count++;
+						locationCount[3].Businesses++;
 					}
 					else if (county == "Flintshire") {
-						countyObject[4].Count++;
+						locationCount[4].Businesses++;
 					}
 					else if (county == "Wrexham") {
-						countyObject[5].Count++;
+						locationCount[5].Businesses++;
 					}
 					else if (county == "Ceredigion") {
-						countyObject[6].Count++;
+						locationCount[6].Businesses++;
 					}
 					else if (county == "Pembrokeshire") {
-						countyObject[7].Count++;
+						locationCount[7].Businesses++;
 					}
 					else if (county == "Carmarthenshire") {
-						countyObject[8].Count++;
+						locationCount[8].Businesses++;
 					}
 					else if (county == "Swansea") {
-						countyObject[9].Count++;
+						locationCount[9].Businesses++;
 					}
 					else if (county == "Neath Port Talbot") {
-						countyObject[10].Count++;
+						locationCount[10].Businesses++;
 					}
 					else if (county == "Bridgend") {
-						countyObject[11].Count++;
+						locationCount[11].Businesses++;
 					}
 					else if (county == "Vale of Glamorgan") {
-						countyObject[12].Count++;
+						locationCount[12].Businesses++;
 					}
 					else if (county == "Cardiff") {
-						countyObject[13].Count++;
+						locationCount[13].Businesses++;
 					}
 					else if (county == "Rhondda Cynon Taf") {
-						countyObject[14].Count++;
+						locationCount[14].Businesses++;
 					}
 					else if (county == "Caerphilly") {
-						countyObject[15].Count++;
+						locationCount[15].Businesses++;
 					}
 					else if (county == "Blaenau Gwent") {
-						countyObject[16].Count++;
+						locationCount[16].Businesses++;
 					}							
 					else if (county == "Torfaen") {
-						countyObject[17].Count++;
+						locationCount[17].Businesses++;
 					}
 					else if (county == "Monmouthshire") {
-						countyObject[18].Count++;
+						locationCount[18].Businesses++;
 					}
 					else if (county == "Newport") {
-						countyObject[19].Count++;
+						locationCount[19].Businesses++;
 					}
 					else if (county == "Powys") {
-						countyObject[20].Count++;
+						locationCount[20].Businesses++;
 					}
 					else if (county == "Merthyr Tydfil") {
-						countyObject[21].Count++;
+						locationCount[21].Businesses++;
 					}
 
-				}
-				console.log(countyObject)
-				
+				}				
 
 			});
+
+		d3.csv('https://raw.githubusercontent.com/pinchsc/Wales-Map-Data/master/school.csv')
+			.then(data => {
+
+				for (var i = 0; i < data.length; i++) {
+
+					var county = data[i].county;
+
+					if (county == "Isle of Anglesey") {
+						locationCount[0].Schools++;
+					}
+					else if (county == "Gwynedd") {
+						locationCount[1].Schools++;
+					}
+					else if (county == "Conwy") {
+						locationCount[2].Schools++;
+					}
+					else if (county == "Denbighshire") {
+						locationCount[3].Schools++;
+					}
+					else if (county == "Flintshire") {
+						locationCount[4].Schools++;
+					}
+					else if (county == "Wrexham") {
+						locationCount[5].Schools++;
+					}
+					else if (county == "Ceredigion") {
+						locationCount[6].Schools++;
+					}
+					else if (county == "Pembrokeshire") {
+						locationCount[7].Schools++;
+					}
+					else if (county == "Carmarthenshire") {
+						locationCount[8].Schools++;
+					}
+					else if (county == "Swansea") {
+						locationCount[9].Schools++;
+					}
+					else if (county == "Neath Port Talbot") {
+						locationCount[10].Schools++;
+					}
+					else if (county == "Bridgend") {
+						locationCount[11].Schools++;
+					}
+					else if (county == "Vale of Glamorgan") {
+						locationCount[12].Schools++;
+					}
+					else if (county == "Cardiff") {
+						locationCount[13].Schools++;
+					}
+					else if (county == "Rhondda Cynon Taf") {
+						locationCount[14].Schools++;
+					}
+					else if (county == "Caerphilly") {
+						locationCount[15].Schools++;
+					}
+					else if (county == "Blaenau Gwent") {
+						locationCount[16].Schools++;
+					}							
+					else if (county == "Torfaen") {
+						locationCount[17].Schools++;
+					}
+					else if (county == "Monmouthshire") {
+						locationCount[18].Schools++;
+					}
+					else if (county == "Newport") {
+						locationCount[19].Schools++;
+					}
+					else if (county == "Powys") {
+						locationCount[20].Schools++;
+					}
+					else if (county == "Merthyr Tydfil") {
+						locationCount[21].Schools++;
+					}
+
+				}				
+
+			});
+
 
 	    // Draw the map
 	    g.selectAll("path")
@@ -251,28 +350,41 @@ d3.json("https://martinjc.github.io/UK-GeoJSON/json/wal/topo_lad.json")
 				.style("top", "10px")
 				.attr("width", 60);
 
-			for ( var x = 0; x < countyObject.length; x++ ) {
+			for ( var x = 0; x < locationCount.length; x++ ) {
 
-				if ( countyObject[x].County == data.objects.lad.geometries[i].properties.LAD13NM ) {
+				if ( locationCount[x].County == data.objects.lad.geometries[i].properties.LAD13NM ) {
 					
 					div.append("p")
-						.text("Number of companies: " + countyObject[i].Count)
+						.text("Number of companies: " + locationCount[i].Businesses);
 
-					div.append("svg")
-						.attr("class", "bar1")
-						.attr("height", "500")
-						.attr("width", "500")
-						.selectAll("rect")
-						.data(countyObject)
-						.enter()
-						.append("rect")
-							.attr("width", countyObject[i].Count*60) 
-										
-							.attr("height", 16)
-							.attr("x", 80)
-							.attr("y", 30)
-							.style("fill", "#ff867d")
+					div.append("p")
+						.text("Number of schools: " + locationCount[i].Schools);
 
+					var selection = div.append("svg")
+											.attr("id", "bar1")
+											.attr("height", "500")
+											.attr("width", "500")
+
+										.selectAll("rect")
+										.data(locationCount)
+										.enter();
+
+
+					selection.append("rect")
+								.attr("class", "business")
+								.attr("width", locationCount[i].Businesses*60)	
+								.attr("height", 16)
+								.attr("x", 80)
+								.attr("y", 30)
+							.style("fill", "#5087e6");
+
+					selection.append("rect")
+								.attr("class", "schools")
+								.attr("width", locationCount[i].Schools*60)	
+								.attr("height", 16)
+								.attr("x", 80)
+								.attr("y", 50)
+							.style("fill", "red");
 				}
 
 			}
