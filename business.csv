@@ -1,34 +1,365 @@
-name,employees,county
-company1,2000,Cardiff
-company2,1800,Cardiff
-company3,1100,Caerphilly
-company4,1000,Cardiff
-company5,850,Powys
-company6,800,Cardiff
-company7,490,Powys
-company8,456,Carmarthenshire
-company9,277,Flintshire
-company10,755,Denbighshire
-company11,247,Torfaen
-company12,844,Gwynedd
-company13,333,Isle of Anglesey
-company14,164,Conwy
-company15,442,Wrexham
-company16,728,Ceredigion
-company17,764,Pembrokeshire
-company18,282,Swansea
-company19,332,Neath Port Talbot
-company20,227,Vale of Glamorgan
-company21,724,Bridgend
-company22,963,Rhondda Cynon Taf
-company23,246,Blaenau Gwent
-company24,161,Monmouthshire
-company25,1551,Newport
-company26,136,Powys
-company27,83,Merthyr Tydfil
-company28,522,Wrexham
-company29,315,Swansea
-company30,361,Swansea
-company31,583,Cardiff
-company32,383,Caerphilly
-company33,244,Wrexham
+name,employees,county,welsh
+company1,2000,Cardiff,yes
+company2,1800,Cardiff,no
+company3,1100,Caerphilly,no
+company4,1000,Cardiff,no
+company5,850,Powys,yes
+company6,800,Cardiff,yes
+company7,490,Powys,no
+company8,456,Carmarthenshire,yes
+company9,277,Flintshire,yes
+company10,755,Denbighshire,no
+company11,247,Torfaen,yes
+company12,844,Gwynedd,yes
+company13,333,Isle of Anglesey,no
+company14,164,Conwy,yes
+company15,442,Wrexham,no
+company16,728,Ceredigion,no
+company17,764,Pembrokeshire,no
+company18,282,Swansea,yes
+company19,332,Neath Port Talbot,yes
+company20,227,Vale of Glamorgan,no
+company21,724,Bridgend,no
+company22,963,Rhondda Cynon Taf,no
+company23,246,Blaenau Gwent,no
+company24,161,Monmouthshire,yes
+company25,1551,Newport,yes
+company26,136,Powys,no
+company27,83,Merthyr Tydfil,no
+company28,522,Wrexham,yes
+company29,315,Swansea,yes
+company30,361,Swansea,no
+company31,583,Cardiff,no
+company32,383,Caerphilly,no
+company33,244,Wrexham,yes
+company1,2000,Cardiff,yes
+company2,1800,Cardiff,yes
+company3,1100,Caerphilly,no
+company4,1000,Cardiff,no
+company5,850,Powys,yes
+company6,800,Cardiff,yes
+company7,490,Powys,yes
+company8,456,Carmarthenshire,yes
+company9,277,Flintshire,no
+company10,755,Denbighshire,no
+company11,247,Torfaen,no
+company12,844,Gwynedd,yes
+company13,333,Isle of Anglesey,no
+company14,164,Conwy,no
+company15,442,Wrexham,no
+company16,728,Ceredigion,no
+company17,764,Pembrokeshire,yes
+company18,282,Swansea,no
+company19,332,Neath Port Talbot,no
+company20,227,Vale of Glamorgan,no
+company21,724,Bridgend,yes
+company22,963,Rhondda Cynon Taf,no
+company23,246,Blaenau Gwent,yes
+company24,161,Monmouthshire,no
+company25,1551,Newport,no
+company26,136,Powys,no
+company27,83,Merthyr Tydfil,no
+company28,522,Wrexham,yes
+company29,315,Swansea,no
+company30,361,Swansea,yes
+company31,583,Cardiff,no
+company32,383,Caerphilly,no
+company33,244,Wrexham,yes
+company1,2000,Cardiff,no
+company2,1800,Cardiff,yes
+company3,1100,Caerphilly,no
+company4,1000,Cardiff,no
+company5,850,Powys,no
+company6,800,Cardiff,yes
+company7,490,Powys,no
+company8,456,Carmarthenshire,no
+company9,277,Flintshire,yes
+company10,755,Denbighshire,no
+company11,247,Torfaen,no
+company12,844,Gwynedd,no
+company13,333,Isle of Anglesey,no
+company14,164,Conwy,no
+company15,442,Wrexham,yes
+company16,728,Ceredigion,no
+company17,764,Pembrokeshire,no
+company18,282,Swansea,no
+company19,332,Neath Port Talbot,yes
+company20,227,Vale of Glamorgan,no
+company21,724,Bridgend,no
+company22,963,Rhondda Cynon Taf,no
+company23,246,Blaenau Gwent,no
+company24,161,Monmouthshire,no
+company25,1551,Newport,yes
+company26,136,Powys,no
+company27,83,Merthyr Tydfil,no
+company28,522,Wrexham,no
+company29,315,Swansea,no
+company30,361,Swansea,yes
+company31,583,Cardiff,no
+company32,383,Caerphilly,no
+company33,244,Wrexham,no
+company1,2000,Cardiff,no
+company2,1800,Cardiff,yes
+company3,1100,Caerphilly,no
+company4,1000,Cardiff,no
+company5,850,Powys,yes
+company6,800,Cardiff,no
+company7,490,Powys,yes
+company8,456,Carmarthenshire,yes
+company9,277,Flintshire,no
+company10,755,Denbighshire,no
+company11,247,Torfaen,no
+company12,844,Gwynedd,no
+company13,333,Isle of Anglesey,yes
+company14,164,Conwy,no
+company15,442,Wrexham,no
+company16,728,Ceredigion,no
+company17,764,Pembrokeshire,no
+company18,282,Swansea,no
+company19,332,Neath Port Talbot,no
+company20,227,Vale of Glamorgan,no
+company21,724,Bridgend,no
+company22,963,Rhondda Cynon Taf,yes
+company23,246,Blaenau Gwent,no
+company24,161,Monmouthshire,yes
+company25,1551,Newport,no
+company26,136,Powys,no
+company27,83,Merthyr Tydfil,yes
+company28,522,Wrexham,no
+company29,315,Swansea,yes
+company30,361,Swansea,no
+company31,583,Cardiff,no
+company32,383,Caerphilly,no
+company33,244,Wrexham,no
+company1,2000,Cardiff,no
+company2,1800,Cardiff,no
+company3,1100,Caerphilly,no
+company4,1000,Cardiff,no
+company5,850,Powys,no
+company6,800,Cardiff,yes
+company7,490,Powys,no
+company8,456,Carmarthenshire,yes
+company9,277,Flintshire,yes
+company10,755,Denbighshire,no
+company11,247,Torfaen,no
+company12,844,Gwynedd,yes
+company13,333,Isle of Anglesey,no
+company14,164,Conwy,yes
+company15,442,Wrexham,no
+company16,728,Ceredigion,no
+company17,764,Pembrokeshire,no
+company18,282,Swansea,yes
+company19,332,Neath Port Talbot,no
+company20,227,Vale of Glamorgan,no
+company21,724,Bridgend,no
+company22,963,Rhondda Cynon Taf,no
+company23,246,Blaenau Gwent,no
+company24,161,Monmouthshire,no
+company25,1551,Newport,no
+company26,136,Powys,no
+company27,83,Merthyr Tydfil,yes
+company28,522,Wrexham,no
+company29,315,Swansea,no
+company30,361,Swansea,yes
+company31,583,Cardiff,no
+company32,383,Caerphilly,no
+company33,244,Wrexham,no
+company1,2000,Cardiff,no
+company2,1800,Cardiff,yes
+company3,1100,Caerphilly,no
+company4,1000,Cardiff,no
+company5,850,Powys,yes
+company6,800,Cardiff,no
+company7,490,Powys,no
+company8,456,Carmarthenshire,no
+company9,277,Flintshire,no
+company10,755,Denbighshire,yes
+company11,247,Torfaen,no
+company12,844,Gwynedd,yes
+company13,333,Isle of Anglesey,no
+company14,164,Conwy,no
+company15,442,Wrexham,no
+company16,728,Ceredigion,no
+company17,764,Pembrokeshire,no
+company18,282,Swansea,no
+company19,332,Neath Port Talbot,no
+company20,227,Vale of Glamorgan,no
+company21,724,Bridgend,no
+company22,963,Rhondda Cynon Taf,no
+company23,246,Blaenau Gwent,no
+company24,161,Monmouthshire,no
+company25,1551,Newport,yes
+company26,136,Powys,no
+company27,83,Merthyr Tydfil,yes
+company28,522,Wrexham,no
+company29,315,Swansea,no
+company30,361,Swansea,yes
+company31,583,Cardiff,no
+company32,383,Caerphilly,no
+company33,244,Wrexham,yes
+company1,2000,Cardiff,no
+company2,1800,Cardiff,no
+company3,1100,Caerphilly,yes
+company4,1000,Cardiff,no
+company5,850,Powys,no
+company6,800,Cardiff,no
+company7,490,Powys,no
+company8,456,Carmarthenshire,yes
+company9,277,Flintshire,no
+company10,755,Denbighshire,no
+company11,247,Torfaen,no
+company12,844,Gwynedd,no
+company13,333,Isle of Anglesey,yes
+company14,164,Conwy,no
+company15,442,Wrexham,no
+company16,728,Ceredigion,yes
+company17,764,Pembrokeshire,no
+company18,282,Swansea,yes
+company19,332,Neath Port Talbot,no
+company20,227,Vale of Glamorgan,no
+company21,724,Bridgend,yes
+company22,963,Rhondda Cynon Taf,no
+company23,246,Blaenau Gwent,no
+company24,161,Monmouthshire,yes
+company25,1551,Newport,no
+company26,136,Powys,yes
+company27,83,Merthyr Tydfil,no
+company28,522,Wrexham,no
+company29,315,Swansea,yes
+company30,361,Swansea,no
+company31,583,Cardiff,no
+company32,383,Caerphilly,no
+company33,244,Wrexham,no
+company1,2000,Cardiff,yes
+company2,1800,Cardiff,no
+company3,1100,Caerphilly,no
+company4,1000,Cardiff,no
+company5,850,Powys,yes
+company6,800,Cardiff,no
+company7,490,Powys,no
+company8,456,Carmarthenshire,no
+company9,277,Flintshire,yes
+company10,755,Denbighshire,no
+company11,247,Torfaen,no
+company12,844,Gwynedd,yes
+company13,333,Isle of Anglesey,no
+company14,164,Conwy,no
+company15,442,Wrexham,no
+company16,728,Ceredigion,yes
+company17,764,Pembrokeshire,no
+company18,282,Swansea,no
+company19,332,Neath Port Talbot,yes
+company20,227,Vale of Glamorgan,no
+company21,724,Bridgend,yes
+company22,963,Rhondda Cynon Taf,no
+company23,246,Blaenau Gwent,no
+company24,161,Monmouthshire,yes
+company25,1551,Newport,no
+company26,136,Powys,yes
+company27,83,Merthyr Tydfil,no
+company28,522,Wrexham,no
+company29,315,Swansea,yes
+company30,361,Swansea,no
+company31,583,Cardiff,no
+company32,383,Caerphilly,yes
+company33,244,Wrexham,no
+company1,2000,Cardiff,no
+company2,1800,Cardiff,no
+company3,1100,Caerphilly,no
+company4,1000,Cardiff,no
+company5,850,Powys,no
+company6,800,Cardiff,no
+company7,490,Powys,no
+company8,456,Carmarthenshire,no
+company9,277,Flintshire,no
+company10,755,Denbighshire,no
+company11,247,Torfaen,no
+company12,844,Gwynedd,no
+company13,333,Isle of Anglesey,no
+company14,164,Conwy,no
+company15,442,Wrexham,yes
+company16,728,Ceredigion,no
+company17,764,Pembrokeshire,yes
+company18,282,Swansea,no
+company19,332,Neath Port Talbot,no
+company20,227,Vale of Glamorgan,yes
+company21,724,Bridgend,no
+company22,963,Rhondda Cynon Taf,no
+company23,246,Blaenau Gwent,yes
+company24,161,Monmouthshire,no
+company25,1551,Newport,yes
+company26,136,Powys,no
+company27,83,Merthyr Tydfil,no
+company28,522,Wrexham,no
+company29,315,Swansea,no
+company30,361,Swansea,no
+company31,583,Cardiff,no
+company32,383,Caerphilly,no
+company33,244,Wrexham,yes
+company1,2000,Cardiff,no
+company2,1800,Cardiff,yes
+company3,1100,Caerphilly,no
+company4,1000,Cardiff,no
+company5,850,Powys,no
+company6,800,Cardiff,yes
+company7,490,Powys,no
+company8,456,Carmarthenshire,no
+company9,277,Flintshire,no
+company10,755,Denbighshire,no
+company11,247,Torfaen,no
+company12,844,Gwynedd,yes
+company13,333,Isle of Anglesey,no
+company14,164,Conwy,no
+company15,442,Wrexham,yes
+company16,728,Ceredigion,no
+company17,764,Pembrokeshire,no
+company18,282,Swansea,no
+company19,332,Neath Port Talbot,yes
+company20,227,Vale of Glamorgan,no
+company21,724,Bridgend,no
+company22,963,Rhondda Cynon Taf,no
+company23,246,Blaenau Gwent,yes
+company24,161,Monmouthshire,no
+company25,1551,Newport,no
+company26,136,Powys,no
+company27,83,Merthyr Tydfil,
+company28,522,Wrexham,no
+company29,315,Swansea,no
+company30,361,Swansea,no
+company31,583,Cardiff,no
+company32,383,Caerphilly,no
+company33,244,Wrexham,yes
+vcompany1,2000,Cardiff,no
+company2,1800,Cardiff,no
+company3,1100,Caerphilly,yes
+company4,1000,Cardiff,no
+company5,850,Powys,no
+company6,800,Cardiff,no
+company7,490,Powys,no
+company8,456,Carmarthenshire,yes
+company9,277,Flintshire,no
+company10,755,Denbighshire,no
+company11,247,Torfaen,no
+company12,844,Gwynedd,no
+company13,333,Isle of Anglesey,yes
+company14,164,Conwy,no
+company15,442,Wrexham,no
+company16,728,Ceredigion,no
+company17,764,Pembrokeshire,no
+company18,282,Swansea,no
+company19,332,Neath Port Talbot,no
+company20,227,Vale of Glamorgan,yes
+company21,724,Bridgend,no
+company22,963,Rhondda Cynon Taf,no
+company23,246,Blaenau Gwent,yes
+company24,161,Monmouthshire,no
+company25,1551,Newport,no
+company26,136,Powys,no
+company27,83,Merthyr Tydfil,no
+company28,522,Wrexham,no
+company29,315,Swansea,yes
+company30,361,Swansea,yes
+company31,583,Cardiff,yes
+company32,383,Caerphilly,no
+company33,244,Wrexham,yes
+
