@@ -2,7 +2,7 @@ name,employees,county,welsh,engineering,law,accounting,healthcare,it,media,publi
 company1,2000,Cardiff,yes,yes,yes,no,no,no,no,yes
 company2,1800,Cardiff,no,no,yes,yes,no,no,no,no
 company3,1100,Caerphilly,no,yes,no,no,yes,yes,no,yes
-company4,1000,Cardiff,no,yes,yes,yes,no,no,yes,no
+company4,1000,Cardiff,no,yes,yes,yes,no,no,yes,yes
 company5,850,Powys,yes,yes,no,no,no,no,yes,no
 company6,800,Cardiff,yes,no,no,yes,no,no,no,no
 company7,490,Powys,no,no,no,yes,yes,no,no,no,no
