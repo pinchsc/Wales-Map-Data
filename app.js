@@ -26,7 +26,7 @@ var projection = d3.geoMercator()
     .translate([ width, height/2 ])
 
 
-// Finds max value for businesses for the scale
+// Finds max value for businesses in order to scale the graph
 var maxBusiness = function(d) {
 	var max = 0;
 	for ( var i = 0; i < d.length; i++ ) {
@@ -35,6 +35,7 @@ var maxBusiness = function(d) {
 	return max;
 }
 
+// Functon to find the max number of sectors in any area, in order to scale the graph 
 var maxSector = function(d) {
 
 	var max = 0;
@@ -50,14 +51,29 @@ var maxSector = function(d) {
 	return max;
 }
 
+// Function that places colour legend for sector graph on tooltip
+var colorLegend = function(x, y, fill, text) {
+	barGraph2.append("rect")
+				.attr("width", "10")
+				.attr("height", "10")
+				.attr("x", `${x+35}`)
+				.attr("y", y)
+				.attr("fill", fill);
+
+	barGraph2.append("text")
+				.attr("x", `${x+50}`)
+				.attr("y", `${y+9}`)
+				.text(text);
+}
+
 // bar graph variables
 
 var bheight = 50;
 var bpadding = 10;
 var bx = 80;
 var radius = 200;
-
-var bar_height = 100;
+var bar_height = 170;
+var offset = 5;
 
 // Load external data and boot
 d3.json("https://martinjc.github.io/UK-GeoJSON/json/wal/topo_lad.json")
@@ -115,7 +131,8 @@ d3.json("https://martinjc.github.io/UK-GeoJSON/json/wal/topo_lad.json")
 					var xAxis1 = d3.axisBottom(xScale).ticks(5)
 					var yAxis1 = d3.axisLeft(d3.scaleLinear().range([8, 115])).ticks(0)
 
-					var yAxis = d3.axisLeft(yScale)
+					var xAxis2 = d3.axisBottom(d3.scaleLinear().range([34, 460])).ticks(0)
+					var yAxis2 = d3.axisLeft(yScale).ticks(3)
 
 					var barGraph1 = div.append("svg")
 											.attr("id", "bar1")
@@ -179,15 +196,38 @@ d3.json("https://martinjc.github.io/UK-GeoJSON/json/wal/topo_lad.json")
 								.attr("transform", "translate(" + bx + ", 15)")
 								.call(yAxis1)
 
-					// div.append("p")
-					// 	.text(locationCount[x].Welsh)
+					
 
-					console.log(`${locationCount[i].Engineering}, ${locationCount[i].Law}, ${locationCount[i].Accounting}, ${locationCount[i].Healthcare}, ${locationCount[i].IT}, ${locationCount[i].Media}, ${locationCount[i].PublicServices}`)
 
+					// Pie chart
 					piechart = div.append("svg")
 										.attr("id", "pie1")
-										.attr("height", "200")
+										.attr("height", "340")
 										.attr("width", "500")
+									.append("g")
+										.attr("transform", "translate(240, 140)")				
+					
+					console.log(welshCount[i])
+					console.log(Object.values(welshCount[i]))
+
+					var pie = d3.pie()
+								.value(function(){ return welshCount[i].Welsh; })
+
+					var data_ready = pie(d3.entries(welshCount[i]))
+
+					piechart.selectAll("path")
+							.data(data_ready)
+							.enter()
+							.append("path")
+								.attr("d", d3.arc()
+											.innerRadius(0)
+											.outerRadius(100)
+								)
+								.attr("fill", "red")
+								.attr("stroke", "black")
+								.style("stroke-width", "1px")
+								.style("opacity", "0.7")
+
 
 					barGraph2 = div.append("svg")
 										.attr("id", "bar2")
@@ -197,158 +237,112 @@ d3.json("https://martinjc.github.io/UK-GeoJSON/json/wal/topo_lad.json")
 									.data(locationCount)
 									.enter();
 
+					barGraph2.append("g")	
+								.call(yAxis2)
+								.attr("transform", "translate(34, 5)")
+
 					barGraph2.append("g")
-								.attr("class", "y-axis")
-								.call(yAxis)
-								.attr("x", "100")
+								.attr("transform", "translate(0, " + (offset + bar_height) + ")")
+								.call(xAxis2)
 
 					barGraph2.append("rect")
 								.attr("width", "55")
 								.attr("height", "0")
 								.attr("x", "40")
-								.attr("y", bar_height)	
+								.attr("y", offset + bar_height)	
 								.transition()
 								.duration(500)
 								.attr("height", function() { return bar_height - yScale(locationCount[i].Engineering); })	
 								.attr("width", "55")
 								.attr("x", "40")
-								.attr("y", function(d) { return yScale(locationCount[i].Engineering); })
+								.attr("y", function(d) { return offset + yScale(locationCount[i].Engineering); })
 								.attr("fill", "#58b865")
 
 					barGraph2.append("rect")
 								.attr("width", "55")
 								.attr("height", "0")
 								.attr("x", "100")
-								.attr("y", bar_height)	
+								.attr("y", offset + bar_height)	
 								.transition()
 								.duration(500)
 								.attr("height", function() { return bar_height - yScale(locationCount[i].Law); })
 								.attr("width", "55")
 								.attr("x", "100")
-								.attr("y", function(d) { return yScale(locationCount[i].Law); })
-								
+								.attr("y", function(d) { return offset + yScale(locationCount[i].Law); })								
 								.attr("fill", "#941239")
 
 					barGraph2.append("rect")
 								.attr("width", "55")
 								.attr("height", "0")
 								.attr("x", "160")
-								.attr("y", bar_height)	
+								.attr("y", offset + bar_height)	
 								.transition()
 								.duration(500)
 								.attr("height", function() { return bar_height - yScale(locationCount[i].Accounting); })
 								.attr("width", "55")
 								.attr("x", "160")
-								.attr("y", function(d) { return yScale(locationCount[i].Accounting); })
+								.attr("y", function(d) { return offset + yScale(locationCount[i].Accounting); })
 								.attr("fill", "#675abf")
 
 					barGraph2.append("rect")
 								.attr("width", "55")
 								.attr("height", "0")
 								.attr("x", "220")
-								.attr("y", bar_height)	
+								.attr("y", offset + bar_height)	
 								.transition()
 								.duration(500)
 								.attr("height", function() { return bar_height - yScale(locationCount[i].Healthcare); })
 								.attr("width", "55")
 								.attr("x", "220")
-								.attr("y", function(d) { return yScale(locationCount[i].Healthcare); })
+								.attr("y", function(d) { return offset + yScale(locationCount[i].Healthcare); })
 								.attr("fill", "#d1b430")
 
 					barGraph2.append("rect")
 								.attr("width", "55")
 								.attr("height", "0")
 								.attr("x", "280")
-								.attr("y", bar_height)	
+								.attr("y", offset + bar_height)	
 								.transition()
 								.duration(500)
 								.attr("height", function() { return bar_height - yScale(locationCount[i].IT); })
 								.attr("width", "55")
 								.attr("x", "280")
-								.attr("y", function(d) { return yScale(locationCount[i].IT); })
+								.attr("y", function(d) { return offset + yScale(locationCount[i].IT); })
 								.attr("fill", "#7cd6ca")
 
 					barGraph2.append("rect")
 								.attr("width", "55")
 								.attr("height", "0")
 								.attr("x", "340")
-								.attr("y", bar_height)	
+								.attr("y", offset + bar_height)	
 								.transition()
 								.duration(500)
 								.attr("height", function() { return bar_height - yScale(locationCount[i].Media); })
 								.attr("width", "55")
 								.attr("x", "340")
-								.attr("y", function(d) { return yScale(locationCount[i].Media); })
+								.attr("y", function(d) { return offset + yScale(locationCount[i].Media); })
 								.attr("fill", "#d2d67c")
 
 					barGraph2.append("rect")
 								.attr("width", "55")
 								.attr("height", "0")
 								.attr("x", "400")
-								.attr("y", bar_height)	
+								.attr("y", offset + bar_height)	
 								.transition()
 								.duration(500)
 								.attr("height", function() { return bar_height - yScale(locationCount[i].PublicServices); })
 								.attr("width", "55")
 								.attr("x", "400")
-								.attr("y", function(d) { return yScale(locationCount[i].PublicServices); })
+								.attr("y", function(d) { return offset + yScale(locationCount[i].PublicServices); })
 								.attr("fill", "#ab7ccc")
 
-
-					// Pie chart
-					
-					// var pie = d3.pie()
-					// 		.value(function(d) {
-
-					// 			return d.Welsh;
-
-					// 		});
-
-					// var data_ready = pie(d3.entries(locationCount[x]))
-
-					// var piechart = div.append("svg")
-					// 						.attr("id", "bar1")
-					// 						.attr("height", "350")
-					// 						.attr("width", "500")
-					// 					.data(data_ready)
-					// 					.enter()
-										
-					// piechart.append("path")
-					// 			.attr("d", d3.arc()
-					// 				.innerRadius(0)
-					// 				.outerRadius(radius)
-					// 			)
-					// 			.attr("fill", "red")
-					// 			.attr("stroke", "black")
-					// 			.style("stroke-width", "2px")
-
-					// var piechart = div.append("svg")
-					// 					.data([data1])
-					// 						.attr("height", h)
-					// 						.attr("width", w)
-					// 					.append("svg:g")
-					// 						.attr("transform", "translate(" + r + "," + r + ")")
-
-					// var arc = d3.arc()
-					// 			.outerRadius(r);
-
-					// var pie = d3.pie()
-					// 			.value(function(d) { return d.value; });
-
-					// var arcs = piechart.selectAll("g.slice")
-					// 				.data(pie)
-					// 				.enter()
-					// 					.append("svg:g")
-					// 						.attr("class", "slice")
-
-					// arcs.append("svg:path")
-					// 	.attr("fill", "red")
-					// 	.attr("d", "arc");
-
-					// piechart.append("circle")
-					// 			.attr("cx", "100")
-					// 			.attr("cy", "100")
-					// 			.attr("r", "20")
+					colorLegend(10, 220, "#58b865", "Engineering")
+					colorLegend(120, 220, "#941239", "Law")
+					colorLegend(230, 220, "#675abf", "Accounting")
+					colorLegend(340, 220, "#d1b430", "Healthcare")
+					colorLegend(55, 255, "#7cd6ca", "IT")
+					colorLegend(165, 255, "#d2d67c", "Media")
+					colorLegend(275, 255, "#ab7ccc", "Public Services")
 
 				}
 
@@ -371,57 +365,5 @@ d3.json("https://martinjc.github.io/UK-GeoJSON/json/wal/topo_lad.json")
 	    
 	});
 
-// Add the option to zoom in on the map 
-// svg.call(d3.zoom().on("zoom", () => {
-// 		g.attr("transform", d3.event.transform);
-// }));
-
 var tooltip = svg.append("g")
 				.attr("class", tooltip)
-
-
-// var width = 600, height = 500;
-
-// var svg = d3.select("body")
-// 			.append("svg")
-// 				.attr("width", width)
-// 				.attr("height", height)
-// 			.style("background", "pink");
-
-// // var details = [ { "grade": "A+", "Number": 8}, {"grade": "A", "Number": 21}, {"grade": "B", "Number": 15}, {"grade": "C", "Number": 29}, {"grade": "D", "Number": 11}, {"grade": "F", "Number": 6} ];
-// var details = [ { "grade": "A+", "Number": 8, "NotNumber": 9} ];
-
-
-// var data = d3.pie()
-// 			.sort(null)
-// 			.value( function(d) {
-
-// 				for ( var i = 0; i < d.length; i++ ) {
-
-// 				newArray = [d[i].Number, d[i].NotNumber];
-// 				console.log(newArray);
-// 				return newArray;
-
-
-// 				}
-
-// 				// return d.Number;
-
-// 			})
-// 			(details);
-// 			console.log(data);
-
-// var segments = d3.arc()
-// 				.innerRadius(0)
-// 				.outerRadius(200)
-// 				.padAngle(.05)
-// 				.padRadius(50);
-
-// var sections = svg.append("g")
-// 					.attr("transform", "translate(250, 250)")
-// 				.selectAll("path")
-// 				.data(data);
-
-// sections.enter()
-// 		.append("path")
-// 			.attr("d", segments)
