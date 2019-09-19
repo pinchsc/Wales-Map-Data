@@ -31,8 +31,8 @@ company29,315,Swansea,yes,no,yes,yes,yes,yes,yes,no
 company30,361,Swansea,no,no,no,yes,yes,no,no,yes
 company31,3453,Carmarthenshire,yes,no,no,yes,no,yes,yes,no
 company32,224,Cardiff,no,no,yes,yes,no,yes,no,no
-company14,164,Conwy,yes,no,yes,no,yes,no,no,yes
-company15,442,Wrexham,no,no,no,yes,yes,yes,no,no
+company14,164,Conwy,no,no,yes,no,yes,no,no,yes
+company15,442,Wrexham,yes,no,no,yes,yes,yes,no,no
 company16,728,Ceredigion,no,yes,yes,yes,no,no,yes,no
 company17,764,Pembrokeshire,no,yes,yes,no,no,no,no,yes
 company18,282,Swansea,yes,yes,yes,yes,no,yes,no,no
@@ -49,20 +49,20 @@ company27,83,Merthyr Tydfil,no,yes,yes,yes,no,no,yes,no
 company28,522,Wrexham,yes,no,no,no,no,yes,yes,no
 company6,800,Cardiff,yes,no,no,yes,no,no,no,no
 company7,490,Powys,no,no,no,yes,yes,no,no,no
-company8,456,Carmarthenshire,yes,no,no,yes,yes,yes,no,yes
+company8,456,Carmarthenshire,no,no,no,yes,yes,yes,no,yes
 company9,277,Flintshire,yes,no,no,no,no,no,no,yes
 company10,755,Denbighshire,no,yes,yes,yes,no,yes,no,no
-company11,247,Torfaen,yes,no,no,yes,yes,no,no,no
+company11,247,Torfaen,no,no,no,yes,yes,no,no,no
 company12,844,Gwynedd,yes,no,no,yes,no,no,no,no
 company13,333,Isle of Anglesey,no,no,no,yes,yes,no,no,no
 company14,164,Conwy,yes,no,yes,no,yes,no,no,yes
 company15,442,Wrexham,no,no,no,yes,yes,yes,no,no
-company16,728,Ceredigion,no,yes,yes,yes,no,no,yes,no
+company16,728,Ceredigion,yes,yes,yes,yes,no,no,yes,no
 company17,764,Pembrokeshire,no,yes,yes,no,no,no,no,yes
 company18,282,Swansea,yes,yes,yes,yes,no,yes,no,no
 company19,332,Neath Port Talbot,yes,no,no,no,no,yes,yes,no
 company20,227,Vale of Glamorgan,no,no,yes,yes,yes,no,no,no
-company21,724,Bridgend,no,yes,yes,yes,no,no,yes,no
+company21,724,Bridgend,yes,yes,yes,yes,no,no,yes,no
 company26,136,Powys,no,yes,no,no,yes,no,no,no
 company27,83,Merthyr Tydfil,no,yes,yes,yes,no,no,yes,no
 company28,522,Wrexham,yes,no,no,no,no,yes,yes,no
@@ -89,23 +89,23 @@ company16,728,Ceredigion,no,yes,yes,yes,no,no,yes,no
 company17,764,Pembrokeshire,no,yes,yes,no,no,no,no,yes
 company18,282,Swansea,yes,yes,yes,yes,no,yes,no,no
 company19,332,Neath Port Talbot,yes,no,no,no,no,yes,yes,no
-company19,332,Neath Port Talbot,yes,no,no,no,no,yes,yes,no
+company19,332,Neath Port Talbot,no,no,no,no,no,yes,yes,no
 company20,227,Vale of Glamorgan,no,no,yes,yes,yes,no,no,no
 company21,724,Bridgend,no,yes,yes,yes,no,no,yes,no
 company22,963,Rhondda Cynon Taf,no,no,no,yes,no,no,no,yes
 company23,246,Blaenau Gwent,no,no,no,yes,no,no,no,no
 company24,161,Monmouthshire,yes,no,yes,yes,no,no,yes,yes
-company25,1551,Newport,yes,no,no,no,no,yes,yes,no
+company25,1551,Newport,no,no,no,no,no,yes,yes,no
 company26,136,Powys,no,yes,no,no,yes,no,no,no
-company20,227,Vale of Glamorgan,no,no,yes,yes,yes,no,no,no
+company20,227,Vale of Glamorgan,yes,no,yes,yes,yes,no,no,no
 company21,724,Bridgend,no,yes,yes,yes,no,no,yes,no
-company26,136,Powys,no,yes,no,no,yes,no,no,no
-company27,83,Merthyr Tydfil,no,yes,yes,yes,no,no,yes,no
+company26,136,Powys,yes,yes,no,no,yes,no,no,no
+company27,83,Merthyr Tydfil,yes,yes,yes,yes,no,no,yes,no
 company28,522,Wrexham,yes,no,no,no,no,yes,yes,no
 company29,315,Swansea,yes,no,yes,yes,yes,yes,yes,no
 company30,361,Swansea,no,no,no,yes,yes,no,no,yes
 company22,963,Rhondda Cynon Taf,no,no,no,yes,no,no,no,yes
 company23,246,Blaenau Gwent,no,no,no,yes,no,no,no,no
-company24,161,Monmouthshire,yes,no,yes,yes,no,no,yes,yes
-company25,1551,Newport,yes,no,no,no,no,yes,yes,no
-company26,136,Powys,no,yes,no,no,yes,no,no,no
+company24,161,Monmouthshire,no,no,yes,yes,no,no,yes,yes
+company25,1551,Newport,no,no,no,no,no,yes,yes,no
+company26,136,Powys,yes,yes,no,no,yes,no,no,no
