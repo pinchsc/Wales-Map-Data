@@ -1,4 +1,22 @@
-.county:hover {
-	fill: grey;
+/* Styling the tooltip */
+.tooltip {
+	position: absolute;
+	text-align: center;
+	width: 530px;
+	height: 900px;
+	padding: 2px;
+	font: 12px Ariel, sans-serif;
+	background: #e6ebf2;
+	border: 0px;
+	border-radius: 4px;
+	pointer-events: none;
 }
 
+.tooltip h1 {
+	text-decoration: underline;
+}
+
+/* Adds the hover over effect to the map */
+path:hover {
+	opacity: 0.5;
+}

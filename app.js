@@ -1,10 +1,10 @@
-// The svg
+// Creates the main SVG
 var svg = d3.select("svg"),
     width = +svg.attr("width"),
     height = +svg.attr("height");
 
-// colour
-var business_domain = [0, 2, 5];
+// Creates the domain and sets the colour for the choropleth effect on the map
+var business_domain = [0, 8, 18, 25];
 var business_colour = d3.scaleLinear()
 						.domain(business_domain)
 						.range(d3.schemeGreens[3]);
@@ -13,7 +13,7 @@ var business_colour = d3.scaleLinear()
 const g = svg.append("g")
 
 
-// tooltip
+// Creates the tooltip SVG
 var div = d3.select("body")
 			.append("div")
 				.attr("class", "tooltip")
@@ -21,17 +21,26 @@ var div = d3.select("body")
 
 // Map and projection
 var projection = d3.geoMercator()
-    .center([-1.9, 52.34])                // GPS of location to zoom on
-    .scale(15000)                       // This is like the zoom
+    .center([-1.9, 52.34])
+    .scale(15000)     
     .translate([ width, height/2 ])
 
 
 // Finds max value for businesses in order to scale the graph
 var maxBusiness = function(d) {
+	var maxB = 0;
+	var maxS = 0;
 	var max = 0;
+
 	for ( var i = 0; i < d.length; i++ ) {
-		if ( d[i].Businesses > max ) { max = d[i].Businesses; }
+		if ( d[i].Businesses > maxB ) { maxB = d[i].Businesses; }
+		if ( d[i].Schools > maxS ) { maxS = d[i].Schools; }
 	}
+
+	if ( maxB > maxS ) { max = maxB; }
+	else if (maxB < maxS ) { max = maxS; }
+	else { max = maxB }
+
 	return max;
 }
 
@@ -51,6 +60,8 @@ var maxSector = function(d) {
 	return max;
 }
 
+var P
+
 // Function that places colour legend for sector graph on tooltip
 var colorLegend = function(x, y, fill, text) {
 	barGraph2.append("rect")
@@ -65,6 +76,8 @@ var colorLegend = function(x, y, fill, text) {
 				.attr("y", `${y+9}`)
 				.text(text);
 }
+
+var colours = d3.scaleOrdinal(d3.schemeRdYlGn[3]);
 
 // bar graph variables
 
@@ -105,12 +118,14 @@ d3.json("https://martinjc.github.io/UK-GeoJSON/json/wal/topo_lad.json")
 	          .projection(projection))
 	    	.attr("class", "county")
 
+	    // Adds function for when user hovers over each part of the map
 		.on("mouseover", function(d, i, n) {
 
 			div.transition()
 				.duration(400)
 				.style("opacity", 0.9)
 				
+			// Adds the name of the county the user is hovering over to the top of the tooltip	
 			div.html("<h1>" + data.objects.lad.geometries[i].properties.LAD13NM + "</h1>")
 				.style("left", "10px")
 				.style("top", "10px")
@@ -134,6 +149,7 @@ d3.json("https://martinjc.github.io/UK-GeoJSON/json/wal/topo_lad.json")
 					var xAxis2 = d3.axisBottom(d3.scaleLinear().range([34, 460])).ticks(0)
 					var yAxis2 = d3.axisLeft(yScale).ticks(3)
 
+					// Creates SVG for bar graph
 					var barGraph1 = div.append("svg")
 											.attr("id", "bar1")
 											.attr("height", "200")
@@ -160,9 +176,7 @@ d3.json("https://martinjc.github.io/UK-GeoJSON/json/wal/topo_lad.json")
 								.style("fill", "#5087e6");
 							
 					barGraph1.append("text")
-								.attr("x", 0)
-								.attr("y", 55)
-								.style("fill", "black")
+								.attr("transform", "translate(0, 55)")
 								.style("font-size", "1.2em")
 								.text("Businesses");
 
@@ -182,9 +196,7 @@ d3.json("https://martinjc.github.io/UK-GeoJSON/json/wal/topo_lad.json")
 								.style("fill", "#d43139");
 
 					barGraph1.append("text")
-								.attr("x", 22)
-								.attr("y", 110)
-								.style("fill", "black")
+								.attr("transform", "translate(22, 110)")
 								.style("font-size", "1.2em")
 								.text("Schools");
 
@@ -205,30 +217,58 @@ d3.json("https://martinjc.github.io/UK-GeoJSON/json/wal/topo_lad.json")
 										.attr("height", "340")
 										.attr("width", "500")
 									.append("g")
-										.attr("transform", "translate(240, 140)")				
-					
-					console.log(welshCount[i])
-					console.log(Object.values(welshCount[i]))
+										.attr("class", "pie_chart")
+										.attr("transform", "translate(240, 140)")
+
+					var color = d3.scaleOrdinal()
+									.domain(welshCount[i])
+									.range(d3.schemeSet2)
 
 					var pie = d3.pie()
-								.value(function(){ return welshCount[i].Welsh; })
+								.value(function(d) { return d.value; })
 
 					var data_ready = pie(d3.entries(welshCount[i]))
 
-					piechart.selectAll("path")
+					var arcGenerator = d3.arc()
+											.innerRadius(0)
+											.outerRadius(100)
+
+					piechart.selectAll("mySlices")
 							.data(data_ready)
 							.enter()
 							.append("path")
-								.attr("d", d3.arc()
-											.innerRadius(0)
-											.outerRadius(100)
-								)
-								.attr("fill", "red")
+								.attr("d", arcGenerator)
+								.attr("fill", function(d) { return(colours(d.data.key)) })
 								.attr("stroke", "black")
-								.style("stroke-width", "1px")
+								.style("stroke-width", "2px")
 								.style("opacity", "0.7")
 
+					piechart.selectAll("mySlices")
+							.data(data_ready)
+							.enter()
+							.append("text")
+							.text(function(d) { return d.data.key; })
+							.attr("transform", function(d) { 
 
+								var _d = arcGenerator.centroid(d);
+								_d[0] *= 3.2;
+								_d[1] *= 2.5;
+								return "translate(" + _d + ")"; 
+
+								})
+							.style("text-anchor", "middle")
+							.style("font-size", "17px")
+
+					piechart.selectAll("mySlices")
+							.data(data_ready)
+							.enter()
+							.append("text")
+							.text(function(d) { return d.value; })
+							.attr("transform", function(d) { return "translate(" + arcGenerator.centroid(d) + ")" })
+							.style("text-anchor", "middle")
+							.style("font-size", "17px")
+							
+					// Job Sectors bar graph
 					barGraph2 = div.append("svg")
 										.attr("id", "bar2")
 										.attr("height", "500")
@@ -336,6 +376,7 @@ d3.json("https://martinjc.github.io/UK-GeoJSON/json/wal/topo_lad.json")
 								.attr("y", function(d) { return offset + yScale(locationCount[i].PublicServices); })
 								.attr("fill", "#ab7ccc")
 
+					// Legend for sectors bar graph
 					colorLegend(10, 220, "#58b865", "Engineering")
 					colorLegend(120, 220, "#941239", "Law")
 					colorLegend(230, 220, "#675abf", "Accounting")
@@ -349,7 +390,8 @@ d3.json("https://martinjc.github.io/UK-GeoJSON/json/wal/topo_lad.json")
 			}
 			
 		})
-
+	
+		// Adds function for when the user moves their mouse outside of the map
 		.on("mouseout", function(d, i, n) {
 			d3.select(n[i])
 				.transition()
